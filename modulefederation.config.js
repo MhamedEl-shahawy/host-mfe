@@ -2,11 +2,12 @@ const deps = require("./package.json").dependencies;
 
 module.exports = {
   name: "host",
+
   exposes: {
   },
   remotes: {
     store: "store@https://todolist-nav.vercel.app/remoteEntry.js",
-    nav: "nav@https://todolist-head.vercel.app/remoteEntry.js",
+    nav: "nav@https://cra-nav.vercel.app/remoteEntry.js",
 
 },
   filename: "remoteEntry.js",
