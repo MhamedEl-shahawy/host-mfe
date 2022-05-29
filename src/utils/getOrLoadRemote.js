@@ -8,10 +8,10 @@
  * @param {string} remoteFallbackUrl - fallback url for remote module
  * @returns {Promise<object>} - Federated Module Container
  */
+ const deps = require("../../package.json").dependencies;
  export const getOrLoadRemote = (remote, shareScope, remoteFallbackUrl = undefined) =>
  new Promise((resolve, reject) => {
    // check if remote exists on window
- 
    if (!window[remote]) {
      // search dom to see if remote tag exists, but might still be loading (async)
      const existingRemote = document.querySelector(`[data-webpack="${remote}"]`);

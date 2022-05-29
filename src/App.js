@@ -1,52 +1,31 @@
-import React,{useEffect} from 'react';
-import { loadComponent } from './utils/loadComponent';
-import MyErrorBoundary from "./MyErrorBoundary";
+import React,{Suspense} from 'react';
 import TodoList from './components/TodoList';
-
-function System(props) {
-  const {
-    system,
-    system: { remote, url, module },
-  } = props;
-
-  if (!system || !remote || !url || !module) {
-    return <h2>No system specified</h2>;
-  }
-
-  const Component = React.lazy(loadComponent(remote, 'default', module, url));
-
-  return (
-    <React.Suspense fallback="Loading System">
-      <Component />
-    </React.Suspense>
-  );
-}
-
+// import Header from "nav/Header";
+import "./app.css";
+import {RemoteComponent} from "react-dynamic-remote-component"
+import {  useStore } from "store/store";
+import MyErrorBoundary from "./MyErrorBoundary";
 function App() {
-  const [system, setSystem] = React.useState({});
-
-  function setApp2() {
-    setSystem({
-      remote: 'nav',
-      url: 'https://cra-nav.vercel.app/remoteEntry.js',
-      module: './Header',
-    });
-  }
-useEffect(()=>{
-    setApp2();
-},[])
+  const {count} = useStore();
   return (
     <div className="App">
-      <MyErrorBoundary>
-        <System system={system} />
-      </MyErrorBoundary>
-      <div className='todo-app'>
-      <MyErrorBoundary>
-            <TodoList />
-     </MyErrorBoundary>
-    </div>
-    </div>
+              <Suspense fallback={"loading"}>
+             <MyErrorBoundary>
+               <RemoteComponent
+                url="https://cra-nav.vercel.app/remoteEntry.js"
+                scope="nav"
+                module='./Header'
+               />
+           </MyErrorBoundary>
+           </Suspense>
 
+
+            <div className='todo-app'>
+            <MyErrorBoundary>
+            <TodoList />
+            </MyErrorBoundary>
+          </div>
+    </div>
   );
 }
 
