@@ -6,9 +6,7 @@ module.exports = {
   exposes: {
   },
   remotes: {
-    store: "store@https://todolist-nav.vercel.app/remoteEntry.js",
-    nav: "nav@https://cra-nav.vercel.app/remoteEntry.js",
-
+    store: "store@https://todolist-nav.vercel.app/remoteEntry.js"
 },
   filename: "remoteEntry.js",
   

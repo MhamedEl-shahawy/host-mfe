@@ -1,30 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TodoForm from './TodoForm';
 import Todo from './Todo';
 import {  useStore } from "store/store";
 
 function TodoList() {
-  const [todos, setTodos] = useState([]);
   const { count, increment } = useStore();
 
 
+  console.log(count)
+
   
-
-  const removeTodo = id => {
-    const removedArr = [...todos].filter(todo => todo.id !== id);
-
-    setTodos(removedArr);
-  };
-
-  const completeTodo = id => {
-    let updatedTodos = todos.map(todo => {
-      if (todo.id === id) {
-        todo.isComplete = !todo.isComplete;
-      }
-      return todo;
-    });
-    setTodos(updatedTodos);
-  };
 
   return (
     <>
