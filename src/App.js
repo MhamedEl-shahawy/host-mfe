@@ -9,7 +9,7 @@ function App() {
               <Suspense fallback={"loading"}>
              <MyErrorBoundary>
                <RemoteComponent
-                url="https://cra-nav.vercel.app/remoteEntry.js"
+                url="https://nb-nav.vercel.app/remoteEntry.js"
                 scope="nav"
                 module='./Header'
                />
