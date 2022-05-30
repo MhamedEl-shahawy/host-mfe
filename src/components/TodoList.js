@@ -7,7 +7,6 @@ function TodoList() {
   const { count, increment } = useStore();
 
 
-  console.log(count)
 
   
 
