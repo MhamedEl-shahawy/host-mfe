@@ -1,12 +1,9 @@
 import React,{Suspense} from 'react';
 import TodoList from './components/TodoList';
-// import Header from "nav/Header";
 import "./app.css";
-import {RemoteComponent} from "react-dynamic-remote-component"
-import {  useStore } from "store/store";
+import {RemoteComponent} from "react-dynamic-remote-component";
 import MyErrorBoundary from "./MyErrorBoundary";
 function App() {
-  const {count} = useStore();
   return (
     <div className="App">
               <Suspense fallback={"loading"}>

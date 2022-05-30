@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TodoForm from './TodoForm';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
-import {  useStore } from "store/store";
+import {  useStore } from "../store";
 
 const Todo = () => {
   const [edit, setEdit] = useState({

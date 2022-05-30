@@ -4,9 +4,9 @@ module.exports = {
   name: "host",
 
   exposes: {
+    "./store": "./src/store",
   },
   remotes: {
-    store: "store@https://todolist-nav.vercel.app/remoteEntry.js"
 },
   filename: "remoteEntry.js",
   

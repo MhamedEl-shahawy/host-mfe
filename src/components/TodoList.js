@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoForm from './TodoForm';
 import Todo from './Todo';
-import {  useStore } from "store/store";
+import {  useStore } from "../store";
 
 function TodoList() {
   const { count, increment } = useStore();
